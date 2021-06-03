@@ -33,7 +33,7 @@ const products = [
       "Bluetooth technology lets you connect it with compatible devices",
     brand: "Apple",
     category: "Electronics",
-    price: 400,
+    price: 400.25,
     countInStock: 2,
     rating: 4.5,
     numReviews: 1,
