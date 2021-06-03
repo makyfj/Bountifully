@@ -1,6 +1,7 @@
 import React from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { GiButterfly } from "react-icons/gi";
 
 const Header = () => {
   return (
@@ -8,7 +9,9 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Bountifully</Navbar.Brand>
+            <Navbar.Brand>
+              <GiButterfly size="3em" /> Bountifully
+            </Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
