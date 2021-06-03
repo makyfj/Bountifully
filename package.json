@@ -1,0 +1,30 @@
+{
+  "name": "bountifully",
+  "version": "1.0.0",
+  "description": "MERN shopping",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makyfj/Bountifully.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Express",
+    "React",
+    "Redux",
+    "MongoDB"
+  ],
+  "author": "makyfj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/makyfj/Bountifully/issues"
+  },
+  "homepage": "https://github.com/makyfj/Bountifully#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
