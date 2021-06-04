@@ -39,7 +39,7 @@ const ProductScreen = ({ match }) => {
               />
             </ListGroup.Item>
             <ListGroup.Item>
-              <p>Price: ${product.price}.toFixed(2)</p>
+              <p>Price: ${product.price}</p>
             </ListGroup.Item>
             <ListGroup.Item>
               <p>Description: {product.description}</p>
