@@ -25,7 +25,7 @@ app.use("/api/products", productRoutes);
 // user routes
 app.use("/api/users", userRoutes);
 // order routes
-app.use("api/orders", orderRoutes);
+app.use("/api/orders", orderRoutes);
 
 // middleware and custom error handler
 app.use(notFound);
