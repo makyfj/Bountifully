@@ -12,7 +12,10 @@ import {
   userDetailsReducer,
   userUpdateProfileReducer,
 } from "./reducers/userReducers";
-import { orderCreateReducer } from "./reducers/orderReducers";
+import {
+  orderCreateReducer,
+  orderDetailsReducer,
+} from "./reducers/orderReducers";
 
 const reducer = combineReducers({
   // product
@@ -30,6 +33,7 @@ const reducer = combineReducers({
 
   // order
   orderCreate: orderCreateReducer,
+  orderDetails: orderDetailsReducer,
 });
 
 // cart
