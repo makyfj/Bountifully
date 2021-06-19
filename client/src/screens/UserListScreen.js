@@ -6,7 +6,7 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 
 // redux
-import { listUsers } from "../actions/userActions";
+import { listUsers, deleteUser } from "../actions/userActions";
 
 const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -17,6 +17,9 @@ const UserListScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const userDelete = useSelector((state) => state.userDelete);
+  const { success: successDelete } = userDelete;
+
   useEffect(() => {
     // checks if user is an admin
     if (userInfo && userInfo.isAdmin) {
@@ -24,10 +27,12 @@ const UserListScreen = ({ history }) => {
     } else {
       history.push("/login");
     }
-  }, [dispatch, history, userInfo]);
+  }, [dispatch, history, userInfo, successDelete]);
 
-  const deleteHandler = () => {
-    console.log("User deleted");
+  const deleteHandler = (id) => {
+    if (window.confirm("Are you sure")) {
+      dispatch(deleteUser(id));
+    }
   };
 
   return (
