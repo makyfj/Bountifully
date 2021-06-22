@@ -7,6 +7,7 @@ import {
   deleteProduct,
   createProduct,
   updateProduct,
+  createProductReview,
 } from "../controllers/productControllers.js";
 
 // middleware
@@ -16,6 +17,8 @@ const router = express.Router();
 
 router.route("/").get(getProducts).post(protect, admin, createProduct);
 
+// review
+router.route("/:id/reviews").post(protect, createProductReview);
 router
   .route("/:id")
   .get(getProductById)
