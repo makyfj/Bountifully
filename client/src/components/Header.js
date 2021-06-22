@@ -1,8 +1,10 @@
 import React from "react";
+import { Route } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { GiButterfly } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
+import SearchBox from "../components/SearchBox";
 
 // redux
 import { logout } from "../actions/userActions";
@@ -28,6 +30,7 @@ const Header = () => {
             </Navbar.Brand>
           </LinkContainer>
 
+          <Route render={({ history }) => <SearchBox history={history} />} />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
             <Nav className="ml-auto">
