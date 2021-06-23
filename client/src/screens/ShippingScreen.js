@@ -10,10 +10,14 @@ const ShippingScreen = ({ history }) => {
   // checks if it is in local storage
   const { shippingAddress } = cart;
 
-  const [address, setAddress] = useState(shippingAddress.address);
-  const [city, setCity] = useState(shippingAddress.city);
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-  const [country, setCountry] = useState(shippingAddress.country);
+  // shippingAddress initially is empty and it will complaint about
+  // controlled/uncontrolled form
+  const [address, setAddress] = useState(shippingAddress.address || "");
+  const [city, setCity] = useState(shippingAddress.city || "");
+  const [postalCode, setPostalCode] = useState(
+    shippingAddress.postalCode || ""
+  );
+  const [country, setCountry] = useState(shippingAddress.country || "");
 
   const dispatch = useDispatch();
 
@@ -37,7 +41,7 @@ const ShippingScreen = ({ history }) => {
             value={address}
             required
             onChange={(e) => setAddress(e.target.value)}
-          ></Form.Control>
+          />
         </Form.Group>
 
         <Form.Group controlId="city">
@@ -48,7 +52,7 @@ const ShippingScreen = ({ history }) => {
             value={city}
             required
             onChange={(e) => setCity(e.target.value)}
-          ></Form.Control>
+          />
         </Form.Group>
 
         <Form.Group controlId="postalCode">
@@ -59,7 +63,7 @@ const ShippingScreen = ({ history }) => {
             value={postalCode}
             required
             onChange={(e) => setPostalCode(e.target.value)}
-          ></Form.Control>
+          />
         </Form.Group>
 
         <Form.Group controlId="country">
@@ -70,7 +74,7 @@ const ShippingScreen = ({ history }) => {
             value={country}
             required
             onChange={(e) => setCountry(e.target.value)}
-          ></Form.Control>
+          />
         </Form.Group>
         <Button type="submit" variant="primary" className="mt-3">
           Continue

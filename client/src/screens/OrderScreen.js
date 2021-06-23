@@ -158,7 +158,10 @@ const OrderScreen = ({ match, history }) => {
                           />
                         </Col>
                         <Col md={4}>
-                          <Link to={`/product/${item.product}`}>
+                          <Link
+                            to={`/product/${item.product}`}
+                            style={{ textDecoration: "none" }}
+                          >
                             {item.name}
                           </Link>
                         </Col>
