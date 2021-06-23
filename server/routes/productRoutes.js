@@ -8,6 +8,7 @@ import {
   createProduct,
   updateProduct,
   createProductReview,
+  getTopProducts,
 } from "../controllers/productControllers.js";
 
 // middleware
@@ -19,6 +20,10 @@ router.route("/").get(getProducts).post(protect, admin, createProduct);
 
 // review
 router.route("/:id/reviews").post(protect, createProductReview);
+
+// top rated products
+router.get("/top", getTopProducts);
+
 router
   .route("/:id")
   .get(getProductById)
