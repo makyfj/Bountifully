@@ -8,6 +8,7 @@ import Loader from "../components/Loader";
 // redux
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { listMyOrders } from "../actions/orderActions";
+import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 // form validation
 const ProfileScreen = ({ history }) => {
@@ -35,7 +36,8 @@ const ProfileScreen = ({ history }) => {
     if (!userInfo) {
       history.push("/login");
     } else {
-      if (!user || !user.name) {
+      if (!user || !user.name || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         // profile as id
         dispatch(getUserDetails("profile"));
         // user orders
@@ -45,7 +47,7 @@ const ProfileScreen = ({ history }) => {
         setEmail(user.email);
       }
     }
-  }, [history, userInfo, dispatch, user, orders]);
+  }, [history, userInfo, dispatch, user, orders, success]);
 
   const submitHandler = (e) => {
     e.preventDefault();

@@ -160,11 +160,11 @@ const ProductScreen = ({ history, match }) => {
           </Row>
           <Row>
             <Col md={6}>
-              <h2>Reviews</h2>
+              <h3 className="pt-3 text-center">Reviews</h3>
               {product.reviews.length === 0 && (
                 <Message variant="info">No Reviews</Message>
               )}
-              <ListGroup variant="flus">
+              <ListGroup variant="flush">
                 {product.reviews.map((review) => (
                   <ListGroup.Item key={review._id}>
                     <strong>{review.name}</strong>
@@ -174,7 +174,7 @@ const ProductScreen = ({ history, match }) => {
                   </ListGroup.Item>
                 ))}
                 <ListGroup.Item>
-                  <h2>Write a Customer Review</h2>
+                  <h3>Write a Customer Review</h3>
                   {errorProductReview && (
                     <Message>{errorProductReview}</Message>
                   )}
