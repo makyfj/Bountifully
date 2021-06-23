@@ -5,6 +5,10 @@ import asyncHandler from "express-async-handler";
 // @route GET /api/products
 // @access Public
 const getProducts = asyncHandler(async (req, res) => {
+  // pagination
+  const pageSize = 6;
+  const page = Number(req.query.pageNumber) || 1;
+
   // Search box
   const keyword = req.query.keyword
     ? {
@@ -15,10 +19,15 @@ const getProducts = asyncHandler(async (req, res) => {
       }
     : {};
 
-  // either is empty or match the keyword
-  const products = await Product.find({ ...keyword });
+  // page count
+  const count = await Product.countDocuments({ ...keyword });
 
-  res.json(products);
+  // either is empty or match the keyword
+  const products = await Product.find({ ...keyword })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
 // @desc Fetch single product
